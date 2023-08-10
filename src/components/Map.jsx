@@ -20,7 +20,7 @@ const Map = () => {
 			center={center}
 			mapContainerClassName=" w-[100%] h-[100vh]"
 		>
-			<Marker position={{ lat: -0.3921935964842486, lng: 36.95869511962907 }} />
+			<Marker position={center} />
 		</GoogleMap>
 	);
 };
