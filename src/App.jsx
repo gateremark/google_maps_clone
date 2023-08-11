@@ -1,10 +1,11 @@
-import Map from "./components/Map";
+
+import Places from "./components/Places";
 
 function App() {
 
 	
 	return (
-		<Map />
+		<Places />
 	);
 }
 
