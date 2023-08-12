@@ -1,6 +1,7 @@
 import { GoogleMap, Marker } from "@react-google-maps/api";
 import { useMemo, useState } from "react";
 import { PlacesAutocomplete } from "./PlacesAutocomplete";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const Map = () => {
 	const center = useMemo(
@@ -11,14 +12,20 @@ const Map = () => {
 
 	return (
 		<>
-			<div className=" absolute top-[10px] left-[50%] translate-x-[-50%] z-10 w-[300px] shadow-md border-[#c5c7ca] border-[1px] opacity-60 hover:opacity-100 cursor-text">
-				<PlacesAutocomplete setSelected={setSelected} />
+			{" "}
+			<div className=" flex absolute items-center top-[10px] left-[50%] translate-x-[-50%] z-10">
+				<div className=" text-xl bg-white p-[10px] shadow-md cursor-pointer" title="Menu">
+					{" "}
+					<RxHamburgerMenu />{" "}
+				</div>
+				<div className="w-[300px] shadow-md cursor-text">
+					<PlacesAutocomplete setSelected={setSelected} />
+				</div>
 			</div>
-
 			<GoogleMap
-				zoom={10}
+				zoom={12}
 				center={selected}
-				mapContainerClassName=" w-[100%] h-[100vh]"
+				mapContainerClassName="w-[100%] h-[100vh]"
 			>
 				{selected && <Marker position={selected} />}
 			</GoogleMap>

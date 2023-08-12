@@ -35,7 +35,7 @@ export const PlacesAutocomplete = ({ setSelected }) => {
 				value={value}
 				onChange={(e) => setValue(e.target.value)}
 				disabled={!ready}
-				className=" w-[100%] p-2"
+				className=" w-[100%] py-2 px-6"
 				placeholder="Search on Gatere Maps"
 			/>
 			<ComboboxPopover>
