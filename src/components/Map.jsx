@@ -13,7 +13,7 @@ const Map = () => {
 	return (
 		<>
 			{" "}
-			<div className=" flex md:absolute items-center md:top-[10px] left-[40%] relative md:left-[50%] translate-x-[-50%] z-10 px-20 md:px-0">
+			<div className=" flex md:absolute items-center md:top-[10px] left-[40%] relative md:left-[50%] translate-x-[-50%] z-10 pl-20 md:pl-0">
 				<div
 					className=" text-xl bg-white p-[10px] shadow-none md:shadow-md cursor-pointer"
 					title="Menu"
@@ -21,7 +21,7 @@ const Map = () => {
 					{" "}
 					<RxHamburgerMenu />{" "}
 				</div>
-				<div className=" md:w-[300px] w-[100%] md:shadow-md cursor-text">
+				<div className="md:w-[300px] w-[400px] md:shadow-md cursor-text">
 					<PlacesAutocomplete setSelected={setSelected} />
 				</div>
 			</div>
