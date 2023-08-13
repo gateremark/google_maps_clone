@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const GetCoordinates = () => {
+const GetCoordinates = ({ onLocationSubmit }) => {
 	const [latitude, setLatitude] = useState("");
 	const [longitude, setLongitude] = useState("");
 
@@ -18,6 +18,7 @@ const GetCoordinates = () => {
 		e.preventDefault();
 		let geolocation = { lat: latitude, lng: longitude };
 		console.log(geolocation);
+        onLocationSubmit(geolocation);
 	};
 
 	return (
@@ -34,6 +35,7 @@ const GetCoordinates = () => {
 					onChange={onLatitudeChange}
 					min="-90"
 					max="90"
+					step="any"
 					required
 					placeholder="Latitude"
 					className="p-1 border-[#000] border-[1px] rounded-xl w-[100px]"
@@ -45,6 +47,7 @@ const GetCoordinates = () => {
 					onChange={onLongitudeChange}
 					min="-180"
 					max="180"
+					step="any"
 					required
 					placeholder="Longitude"
 					className="p-1 border-[#000] border-[1px] rounded-xl w-[100px]"

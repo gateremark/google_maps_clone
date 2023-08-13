@@ -10,7 +10,12 @@ const Map = () => {
 		[],
 	);
 	const [selected, setSelected] = useState(center);
+	const [submittedLocation, setSubmittedLocation] = useState(null);
 
+	const handleLocationSubmit = (geolocation) => {
+		setSubmittedLocation(geolocation);
+
+	};
 	return (
 		<>
 			{" "}
@@ -27,15 +32,26 @@ const Map = () => {
 				</div>
 			</div>
 			<div className="">
-				< GetCoordinates />
+				<GetCoordinates onLocationSubmit={handleLocationSubmit} />
 			</div>
-			<GoogleMap
-				zoom={12}
-				center={selected}
-				mapContainerClassName="w-[100%] h-[100vh]"
-			>
-				{selected && <Marker position={selected} />}
-			</GoogleMap>
+			{!submittedLocation && (
+				<GoogleMap
+					zoom={12}
+					center={selected}
+					mapContainerClassName="w-[100%] h-[100vh]"
+				>
+					{selected && <Marker position={selected} />}
+				</GoogleMap>
+			)}
+			{submittedLocation && (
+				<GoogleMap
+					zoom={12}
+					center={submittedLocation}
+					mapContainerClassName="w-[100%] h-[100vh]"
+				>
+					{submittedLocation && <Marker position={submittedLocation} />}
+				</GoogleMap>
+			)}
 		</>
 	);
 };
