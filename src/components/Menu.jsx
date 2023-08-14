@@ -3,9 +3,9 @@ import { IoMdClose } from "react-icons/io";
 import { BiDockLeft } from "react-icons/bi";
 import { FaRegBookmark } from "react-icons/fa";
 import classNames from "classnames";
-import gateremaps from "../assets/gateremaps2.png"
+import gateremaps from "../assets/gateremaps2.png";
 
-const Menu = () => {
+const Menu = ({ openMenu, setOpenMenu }) => {
 	const [isSelected, setIsSelected] = useState(false);
 
 	const menuItemsOne = [
@@ -102,23 +102,37 @@ const Menu = () => {
 		},
 	];
 
+	const handleCloseMenu = () => {
+		setOpenMenu(false);
+	};
+
 	return (
-		<div className=" px-5 flex flex-row absolute left-0 top-0 z-50 bg-[#fff] w-[23.5%] text-[#202124] text-xs h-[100%] overflow-y-scroll">
+		<div
+			className={classNames(
+				"px-5 flex flex-row absolute top-0 z-50 bg-[#fff] w-[23.5%] text-[#202124] text-xs h-[100%] overflow-y-scroll transition-transform duration-300 transform",
+				{ "translate-x-0": openMenu, "-translate-x-full": !openMenu },
+			)}
+		>
 			<div className="w-[100%] ">
 				<div className="flex pt-3 w-[100%] justify-between">
-					<img className=" w-auto h-6" src={gateremaps} alt="gateremaps" />
-					<IoMdClose className="text-[#616161] text-2xl" />
+					<a href="" className="cursor-pointer">
+						<img className=" w-auto h-6" src={gateremaps} alt="gateremaps" />
+					</a>
+					<IoMdClose
+						onClick={handleCloseMenu}
+						className="text-[#616161] text-2xl cursor-pointer"
+					/>
 				</div>
 				<div className=" flex justify-between items-center my-3">
-					<div className="flex justify-between gap-5 items-center">
+					<div className="flex justify-between gap-5 items-center cursor-pointer">
 						<BiDockLeft className=" text-[#616161] text-3xl" />
 						<p className="">Show side bar</p>
 					</div>
 
 					<div
-						onClick={() => setIsSelected(!isSelected)}
+						onClick={() => setIsSelected((isSelected) => !isSelected)}
 						className={classNames(
-							"flex w-[37px] h-[14px] bg-[#BDC1C6] rounded-full relative items-center",
+							"flex w-[37px] h-[14px] bg-[#BDC1C6] rounded-full relative items-center cursor-pointer",
 							{
 								"bg-[#F2F7FE] justify-end": isSelected,
 							},
@@ -128,7 +142,8 @@ const Menu = () => {
 							className={classNames(
 								"w-5 h-5 absolute bg-[#ffffff] rounded-full shadow shadow-[#898a8d] border border-[#f7f7f7]",
 								{
-									"bg-[#1A73E8] border-[0]": isSelected,
+									"bg-[#1A73E8]": isSelected,
+									"border-[0]": isSelected,
 								},
 							)}
 						/>
@@ -140,7 +155,7 @@ const Menu = () => {
 						return (
 							<div
 								key={item.id}
-								className="flex gap-6 items-center hover:text-[#1a73e8] my-3 "
+								className="flex gap-6 items-center hover:text-[#1a73e8] my-3 cursor-pointer"
 							>
 								<FaRegBookmark className="text-[#70757a] text-xl" />
 								<p className="text-xs">{item.name}</p>
@@ -154,7 +169,7 @@ const Menu = () => {
 						return (
 							<div
 								key={item.id}
-								className="flex gap-6 items-center hover:text-[#1a73e8] my-3 "
+								className="flex gap-6 items-center hover:text-[#1a73e8] my-3 cursor-pointer"
 							>
 								<FaRegBookmark className="text-[#70757a] text-xl" />
 								<p className="text-xs">{item.name}</p>
@@ -168,7 +183,7 @@ const Menu = () => {
 						return (
 							<div
 								key={item.id}
-								className="flex gap-6 items-center hover:text-[#1a73e8] my-3 "
+								className="flex gap-6 items-center hover:text-[#1a73e8] my-3 cursor-pointer"
 							>
 								<FaRegBookmark className="text-[#70757a] text-xl" />
 								<p className="text-xs">{item.name}</p>
@@ -182,7 +197,7 @@ const Menu = () => {
 						return (
 							<div
 								key={item.id}
-								className="flex gap-6 items-center hover:text-[#1a73e8] my-3 "
+								className="flex gap-6 items-center hover:text-[#1a73e8] my-3 cursor-pointer"
 							>
 								<FaRegBookmark className="text-[#70757a] text-xl" />
 								<p className="text-xs">{item.name}</p>
@@ -190,7 +205,6 @@ const Menu = () => {
 						);
 					})}
 				</div>
-				;
 			</div>
 		</div>
 	);
