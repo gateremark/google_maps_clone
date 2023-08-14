@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { PlacesAutocomplete } from "./PlacesAutocomplete";
 import { RxHamburgerMenu } from "react-icons/rx";
 import GetCoordinates from "./GetCoordinates";
+import Menu from "./Menu";
 
 const Map = () => {
 	const center = useMemo(
@@ -14,7 +15,6 @@ const Map = () => {
 
 	const handleLocationSubmit = (geolocation) => {
 		setSubmittedLocation(geolocation);
-
 	};
 	return (
 		<>
@@ -33,6 +33,9 @@ const Map = () => {
 			</div>
 			<div className="">
 				<GetCoordinates onLocationSubmit={handleLocationSubmit} />
+			</div>
+			<div>
+				<Menu />
 			</div>
 			{!submittedLocation && (
 				<GoogleMap
