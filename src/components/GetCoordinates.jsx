@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MdApps } from "react-icons/md";
-import gateremark from "../assets/unnamed.png";
+import gateremark from "../assets/gateremark.jpg";
 
 const GetCoordinates = ({ onLocationSubmit }) => {
 	const [latitude, setLatitude] = useState("");
@@ -64,7 +64,14 @@ const GetCoordinates = ({ onLocationSubmit }) => {
 					title="Google Apps"
 					className=" text-[#535353] text-3xl cursor-pointer"
 				/>
-				<img className="rounded-full" src={gateremark} alt="" />
+				<a
+					href="https://github.com/gateremark"
+					target="_blank"
+					rel="noreferrer"
+					title="gateremark"
+				>
+					<img className="rounded-full w-8" src={gateremark} alt="" />
+				</a>
 			</div>
 		</div>
 	);
