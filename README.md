@@ -1,4 +1,4 @@
-# Google Maps Cone (Gatere Maps)
+# Google Maps Clone (Gatere Maps)
 
 This project is a clone of Google Maps, the popular web mapping service that offers satellite imagery, street maps, 360° panoramic views of streets, real-time traffic conditions, and route planning.
 
