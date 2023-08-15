@@ -59,7 +59,7 @@ const GetCoordinates = ({ onLocationSubmit }) => {
 					Submit
 				</button>
 			</form>
-			<div className="flex gap-5">
+			<div className="flex gap-2 md:gap-5">
 				<MdApps
 					title="Google Apps"
 					className=" text-[#535353] text-3xl cursor-pointer"
