@@ -38,7 +38,7 @@ export const PlacesAutocomplete = ({ setSelected }) => {
 				className=" w-[100%] py-2 px-6"
 				placeholder="Search on Gatere Maps"
 			/>
-			<ComboboxPopover>
+			<ComboboxPopover className="z-50">
 				<ComboboxList>
 					{status === "OK" &&
 						data.map(({ place_id, description }) => (
