@@ -24,7 +24,7 @@ const GetCoordinates = ({ onLocationSubmit }) => {
 	};
 
 	return (
-		<div className=" flex justify-between px-3 pr-6 items-center">
+		<div className=" flex justify-between px-[2px] md:px-3 md:pr-6 items-center">
 			<form
 				className=" flex justify-start items-center p-1 gap-1"
 				action=""

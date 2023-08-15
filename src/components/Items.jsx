@@ -10,7 +10,7 @@ import {
 
 const Items = () => {
 	return (
-		<div className="flex text-[#424242] gap-2 absolute z-50 m-auto top-[70px] right-28 text-sm font-medium">
+		<div className=" hidden md:flex text-[#424242] gap-2 absolute z-50 m-auto top-[70px] right-28 text-sm font-medium">
 			<div className=" flex items-center justify-center gap-1 bg-[#fff] py-[6px] px-2 rounded-full shadow-md cursor-pointer hover:bg-[#f7f7f7] hover:shadow-lg">
 				<PiForkKnifeFill className=" text-lg" />
 				Restaurants
