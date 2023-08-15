@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { MdApps } from "react-icons/md";
+import gateremark from "../assets/unnamed.png"
 
 const GetCoordinates = ({ onLocationSubmit }) => {
 	const [latitude, setLatitude] = useState("");
@@ -18,11 +20,11 @@ const GetCoordinates = ({ onLocationSubmit }) => {
 		e.preventDefault();
 		let geolocation = { lat: latitude, lng: longitude };
 		console.log(geolocation);
-        onLocationSubmit(geolocation);
+		onLocationSubmit(geolocation);
 	};
 
 	return (
-		<>
+		<div className=" flex justify-between px-3 pr-6 items-center">
 			<form
 				className=" flex justify-start items-center p-1 gap-1"
 				action=""
@@ -57,7 +59,14 @@ const GetCoordinates = ({ onLocationSubmit }) => {
 					Submit
 				</button>
 			</form>
-		</>
+			<div className="flex gap-5">
+				<MdApps
+					title="Google Apps"
+					className=" text-[#535353] text-3xl cursor-pointer"
+				/>
+				<img className="rounded-full" src={gateremark} alt="" />
+			</div>
+		</div>
 	);
 };
 
