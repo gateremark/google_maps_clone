@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MdApps } from "react-icons/md";
-import gateremark from "../assets/unnamed.png"
+import gateremark from "../assets/unnamed.png";
 
 const GetCoordinates = ({ onLocationSubmit }) => {
 	const [latitude, setLatitude] = useState("");
