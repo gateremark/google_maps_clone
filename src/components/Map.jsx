@@ -1,5 +1,5 @@
 import { GoogleMap, Marker } from "@react-google-maps/api";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { PlacesAutocomplete } from "./PlacesAutocomplete";
 import { FaBars, FaSearch } from "react-icons/fa";
 import GetCoordinates from "./GetCoordinates";
@@ -7,13 +7,28 @@ import Menu from "./Menu";
 import Items from "./Items";
 
 const Map = () => {
-	const center = useMemo(
-		() => ({ lat: -0.3921935964842486, lng: 36.95869511962907 }),
-		[],
-	);
-	const [selected, setSelected] = useState(center);
+	// const center = useMemo(
+	// 	() => ({ lat: -0.3921935964842486, lng: 36.95869511962907 }),
+	// 	[],
+	// );
+	// const [position, setPosition] = useState(center);
+	const [position, setPosition] = useState(null);
 	const [submittedLocation, setSubmittedLocation] = useState(null);
 	const [openMenu, setOpenMenu] = useState(false);
+
+	useEffect(() => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(
+				(position) => {
+					setPosition({
+						lat: position.coords.latitude,
+						lng: position.coords.longitude,
+					});
+				},
+				() => null,
+			);
+		}
+	}, []);
 
 	const handleLocationSubmit = (geolocation) => {
 		setSubmittedLocation(geolocation);
@@ -33,7 +48,7 @@ const Map = () => {
 				</div>
 
 				<div className="md:w-[300px] w-[350px] md:shadow-md cursor-text">
-					<PlacesAutocomplete setSelected={setSelected} />
+					<PlacesAutocomplete setPosition={setPosition} />
 				</div>
 				<div
 					className=" text-[#424242] text-[19px] bg-white p-[10px] shadow-none md:shadow-md cursor-pointer"
@@ -52,16 +67,15 @@ const Map = () => {
 			<div>
 				<Items />
 			</div>
-			{!submittedLocation && (
+			{!submittedLocation ? (
 				<GoogleMap
 					zoom={12}
-					center={selected}
+					center={position}
 					mapContainerClassName="w-[100%] h-[100vh]"
 				>
-					{selected && <Marker position={selected} />}
+					{position && <Marker position={position} />}
 				</GoogleMap>
-			)}
-			{submittedLocation && (
+			) : (
 				<GoogleMap
 					zoom={12}
 					center={submittedLocation}
