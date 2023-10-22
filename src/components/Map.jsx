@@ -48,7 +48,7 @@ const Map = () => {
 				</div>
 
 				<div className="md:w-[300px] w-[350px] md:shadow-md cursor-text">
-					<PlacesAutocomplete setPosition={setPosition} />
+					<PlacesAutocomplete setPosition={setPosition} setSubmittedLocation={setSubmittedLocation} />
 				</div>
 				<div
 					className=" text-[#424242] text-[19px] bg-white p-[10px] shadow-none md:shadow-md cursor-pointer"

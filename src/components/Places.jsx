@@ -9,6 +9,6 @@ export default function Places() {
 		libraries: ["places"],
 	});
 
-	if (!isLoaded) return <div>Loading...</div>;
+	if (!isLoaded) return <div className="">Loading...</div>;
 	return <Map />;
 }

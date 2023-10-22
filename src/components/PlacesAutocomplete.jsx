@@ -11,7 +11,7 @@ import {
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 
-export const PlacesAutocomplete = ({ setPosition }) => {
+export const PlacesAutocomplete = ({ setPosition, setSubmittedLocation }) => {
 	const {
 		ready,
 		value,
@@ -27,6 +27,7 @@ export const PlacesAutocomplete = ({ setPosition }) => {
 		const results = await getGeocode({ address });
 		const { lat, lng } = await getLatLng(results[0]);
 		setPosition({ lat, lng });
+		setSubmittedLocation(null);
 	};
 
 	return (
