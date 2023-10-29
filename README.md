@@ -44,11 +44,11 @@ To get started with Gatere Maps locally, follow these steps:
 
 1. Clone the repository:
    ```bash
-   https://github.com/gateremark/g_maps_clone.git
+   https://github.com/gateremark/google_maps_clone.git
    ```
 2. Install the dependencies:
    ```bash
-   cd g_maps_clone
+   cd google_maps_clone
    ```
    ```bash
    pnpm install
